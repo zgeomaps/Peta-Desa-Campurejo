@@ -45,10 +45,37 @@
     font-size: 11px;
     color: #666;
 }
+.map-decorations {
+    position: absolute;
+    top: 80px;
+    left: 60px; /* Posisi di kanan atas, sebelah layer tree */
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 5px 5	px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    pointer-events: auto;
+}
+
+.campus-logo {
+    height: 45px;
+    width: auto;
+}
+
+.north-arrow {
+    height: 70px;
+    width: 70px;
+}
         </style>
         <title></title>
     </head>
     <body>
+	<div class="map-decorations">
+    <img src="images/Utara.png" alt="Arah Mata Angin" class="north-arrow">
+    </div>
 	<div class="map-title">
     <h2>PETA FASUM DESA CAMPUREJO</h2>
     <p>Kecamatan Boja, Kabupaten Kendal, Provinsi Jawa Tengah</p>
@@ -609,6 +636,11 @@
         });
         lay.addTo(map);
         setBounds();
+		L.control.scale({
+        metric: true,
+        imperial: false,
+        position: 'bottomleft'
+        }).addTo(map);
         </script>        
     </body>
 </html>
